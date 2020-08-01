@@ -8,8 +8,3 @@ script: npm run build
 
 addons:
   chrome: stable
-
-sudo: required
-
-before_script: -"sudo chown root /opt/goole/chorme/chorme-sandbox"
-  -"sudo chmod 4755 /opt/goole/chorme/chorme-sandbox"
