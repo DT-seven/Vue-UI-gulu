@@ -8,7 +8,12 @@
 <script>
 export default {
   props: ["name"],
-  name: "GIcon",
+  name: "gulu-gicon",
 };
 </script>
-<style scoped></style>
+<style scoped>
+div {
+  display: inline-block;
+  margin: 0 2px;
+}
+</style>

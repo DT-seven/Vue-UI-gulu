@@ -1,5 +1,9 @@
 <template>
-  <button :class="{ [`icon-${iconPosition}`]: true }" @click="$emit('click')" class="g-button">
+  <button
+    :class="{ [`icon-${iconPosition}`]: true }"
+    @click="$emit('click')"
+    class="g-button"
+  >
     <g-icon name="jiazai" class="icon loading" v-if="loading"></g-icon>
     <g-icon :name="icon" v-if="icon && !loading" class="icon"></g-icon>
     <div class="content">
@@ -22,12 +26,12 @@ export default {
     iconPosition: {
       type: String,
       default: "left",
-      validator: function (value) {
+      validator: function(value) {
         return value !== "right" || value !== "left";
       },
     },
   },
-  name: "GButton",
+  name: "gulu-gbutton",
 };
 </script>
 <style scoped lang="scss">

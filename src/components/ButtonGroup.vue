@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: "buttongroup",
+  name: "gulu-buttongroup",
 };
 </script>
 <style scoped lang="scss">
