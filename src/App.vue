@@ -3,7 +3,7 @@
     <div id="gulu-input">
       <g-input value="zhangsan" disabled></g-input>
       <g-input value="zhangsan" readOnly></g-input>
-      <g-input value="zhangsan"></g-input>
+      <g-input v-model="message" @change="inputChange"></g-input>
       <g-input value="zhangsan" :error="errorMessage"></g-input>
     </div>
     <div id="gulu-button" style="margin: 20px;">
@@ -39,7 +39,13 @@ export default {
       loading2: false,
       loading3: false,
       errorMessage: "姓名不得少于2个字",
+      message: "",
     };
+  },
+  methods: {
+    inputChange(e) {
+      console.log(e.target.value);
+    },
   },
 };
 </script>

@@ -6,6 +6,8 @@
       :readOnly="readOnly"
       :error="error"
       type="text"
+      @change="$emit('change', $event)"
+      @input="$emit('input', $event.target.value)"
     />
     <template v-if="error">
       <g-icon name="test"></g-icon>
