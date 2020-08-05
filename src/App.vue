@@ -1,5 +1,49 @@
 <template>
   <div id="app">
+    <div id="grid">
+      <g-row>
+        <g-col></g-col>
+        <g-col></g-col>
+      </g-row>
+      <g-row>
+        <g-col></g-col>
+        <g-col></g-col>
+        <g-col></g-col>
+      </g-row>
+      <g-row>
+        <g-col></g-col>
+        <g-col></g-col>
+        <g-col></g-col>
+        <g-col></g-col>
+      </g-row>
+      <g-row>
+        <g-col span="2"></g-col>
+        <g-col span="22"></g-col>
+      </g-row>
+      <g-row>
+        <g-col span="2"></g-col>
+        <g-col span="20"></g-col>
+        <g-col span="2"></g-col>
+      </g-row>
+      <g-row>
+        <g-col span="2"></g-col>
+        <g-col span="20" offset="2"></g-col>
+      </g-row>
+      <g-row>
+        <g-col span="6"></g-col>
+        <g-col span="14" offset="4"></g-col>
+      </g-row>
+      <div style="border:1px solid red">
+        <g-row gutter="20">
+          <g-col :phone="{ span: 2 }">1</g-col>
+          <g-col :phone="{ span: 20, offset: 2 }">1</g-col>
+        </g-row>
+        <g-row>
+          <g-col :phone="{ span: 2 }">1</g-col>
+          <g-col :phone="{ span: 22 }">1</g-col>
+        </g-row>
+      </div>
+    </div>
     <div id="gulu-input">
       <g-input value="zhangsan" disabled></g-input>
       <g-input value="zhangsan" readOnly></g-input>
