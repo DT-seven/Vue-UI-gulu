@@ -42,7 +42,7 @@ export default {
         let keys = Object.keys(value);
         let valat = true;
         keys.forEach((key) => {
-          if (!["span", "offset"].includes(key)) {
+          if (!["span", "offset"].indexOf(key)) {
             valat = false;
           }
         });

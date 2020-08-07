@@ -11,10 +11,11 @@ import GHeader from "./components/header.vue";
 import GFooter from "./components/footer.vue";
 import GSider from "./components/sider.vue";
 import GContent from "./components/content.vue";
+import plug from "./components/plugin";
 import "../src/assets/js/icon";
 import "./assets/css/reset.css";
 Vue.config.productionTip = false;
-
+Vue.use(plug);
 Vue.component("g-button", GButton);
 Vue.component("button-group", ButtonGroup);
 Vue.component("g-input", GInput);

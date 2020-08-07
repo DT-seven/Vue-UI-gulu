@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <div id="toast">
+      <button @click="showToast">点我</button>
+    </div>
     <div id="grid">
       <g-row>
         <g-col span="6"></g-col>
@@ -66,6 +69,9 @@ export default {
   methods: {
     inputChange(e) {
       console.log(e.target.value);
+    },
+    showToast() {
+      this.$toast(`您的银行卡已经欠费，请充值`);
     },
   },
 };
