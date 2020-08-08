@@ -7,7 +7,7 @@ describe("input组件", () => {
     expect(Input).to.exist;
   });
 });
-describe("input组件", () => {
+describe("input组件的功能", () => {
   const factory = (p) => {
     return mount(Input, {
       propsData: {
