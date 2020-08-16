@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <div style="border:1px solid red; overflow:hideen">
-      <g-popover>
-        <template slot="content">
-          <div>popover点击生成的内容</div>
-        </template>
-        <button @click="yyy">点击</button>
-      </g-popover>
-    </div>
+    <g-popover>
+      <template slot="content">
+        <div>
+          weererewrerwrdsfsfsfsfsweererewrerwrdsfsfsfsfsweererewrerwrdsfsfsfsfsweererewrerwrdsfsfsfsfsweererewrerwrdsfsfsfsfsweererewrerwrdsfsfsfsfs
+        </div>
+      </template>
+      <g-button>点击</g-button>
+    </g-popover>
     <!-- <g-tabs :selected.sync="selectedTab">
       <g-tabs-head>
         <g-tabs-item name="girls">
@@ -105,7 +105,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 #app {
-  border: 1px solid blue;
   padding: 200px;
 }
 </style>
