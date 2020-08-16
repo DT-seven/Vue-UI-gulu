@@ -35,7 +35,7 @@ describe("测试Toast组件的功能", () => {
       done();
     }, 2000);
   }).timeout(6000);
-  it("测试closeButton", () => {
+  it("测试closeButton", (done) => {
     const callback = sinon.fake();
     const wrapper = factory({
       autoClose: true,
@@ -45,8 +45,12 @@ describe("测试Toast组件的功能", () => {
       },
     });
     let closeButton = wrapper.find(".close");
+    console.log(wrapper.find(".toastContent").html());
     expect(closeButton.text()).to.eq("g");
-    closeButton.trigger("click");
-    expect(callback).to.have.been.called;
+    setTimeout(() => {
+      closeButton.trigger("click");
+      expect(callback).to.have.been.called;
+      done();
+    }, 200);
   });
 });

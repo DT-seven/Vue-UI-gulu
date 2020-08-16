@@ -1,6 +1,29 @@
 <template>
   <div id="app">
-    <div id="toast">
+    <div style="border:1px solid red; overflow:hideen">
+      <g-popover>
+        <template slot="content">
+          <div>popover点击生成的内容</div>
+        </template>
+        <button @click="yyy">点击</button>
+      </g-popover>
+    </div>
+    <!-- <g-tabs :selected.sync="selectedTab">
+      <g-tabs-head>
+        <g-tabs-item name="girls">
+          <g-icon name="shezhi"></g-icon>
+          美女
+        </g-tabs-item>
+        <g-tabs-item name="sport">体育</g-tabs-item>
+        <g-tabs-item name="finace">财经</g-tabs-item>
+      </g-tabs-head>
+      <g-tabs-body>
+        <g-tabs-pane name="girls">美女图片</g-tabs-pane>
+        <g-tabs-pane name="sport">体育图片</g-tabs-pane>
+        <g-tabs-pane name="finace">财经新闻</g-tabs-pane>
+      </g-tabs-body>
+    </g-tabs>-->
+    <!-- <div id="toast">
       <button @click="showToast">点我</button>
     </div>
     <div id="grid">
@@ -50,7 +73,7 @@
         <g-button>更多</g-button>
         <g-button>下一页</g-button>
       </button-group>
-    </div>
+    </div>-->
   </div>
 </template>
 
@@ -64,9 +87,13 @@ export default {
       loading3: false,
       errorMessage: "姓名不得少于2个字",
       message: "",
+      selectedTab: "girls",
     };
   },
   methods: {
+    yyy() {
+      console.log("yyy");
+    },
     inputChange(e) {
       console.log(e.target.value);
     },
@@ -76,4 +103,9 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#app {
+  border: 1px solid blue;
+  padding: 200px;
+}
+</style>

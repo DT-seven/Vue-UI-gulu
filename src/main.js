@@ -1,6 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 import "./assets/css/icon.css";
+import GIcon from "./components/icon.vue";
 import GButton from "./components/button.vue";
 import ButtonGroup from "./components/ButtonGroup.vue";
 import GInput from "./components/input.vue";
@@ -14,8 +15,16 @@ import GContent from "./components/content.vue";
 import plug from "./components/plugin";
 import "../src/assets/js/icon";
 import "./assets/css/reset.css";
+import GTabs from "./components/tabs.vue";
+import GTabsHead from "./components/tabs-head.vue";
+import GTabsItem from "./components/tabs-item.vue";
+import GTabsBody from "./components/tabs-body.vue";
+import GTabsPane from "./components/tabs-pane.vue";
+import GPopover from "./components/popover.vue";
 Vue.config.productionTip = false;
 Vue.use(plug);
+Vue.component("g-popover", GPopover);
+Vue.component("g-icon", GIcon);
 Vue.component("g-button", GButton);
 Vue.component("button-group", ButtonGroup);
 Vue.component("g-input", GInput);
@@ -26,6 +35,11 @@ Vue.component("g-header", GHeader);
 Vue.component("g-footer", GFooter);
 Vue.component("g-sider", GSider);
 Vue.component("g-content", GContent);
+Vue.component("g-tabs", GTabs);
+Vue.component("g-tabs-head", GTabsHead);
+Vue.component("g-tabs-item", GTabsItem);
+Vue.component("g-tabs-body", GTabsBody);
+Vue.component("g-tabs-pane", GTabsPane);
 
 new Vue({
   render: (h) => h(App),
