@@ -1,9 +1,35 @@
 <template>
   <div id="app">
-    <g-popover>
+    <div style="height:200px"></div>
+    <g-popover position="top">
       <template slot="content">
         <div>
           weererewrerwrdsfsfsfsfsweererewrerwrdsfsfsfsfsweererewrerwrdsfsfsfsfsweererewrerwrdsfsfsfsfsweererewrerwrdsfsfsfsfsweererewrerwrdsfsfsfsfs
+        </div>
+      </template>
+      <g-button>点击</g-button>
+    </g-popover>
+    <g-popover position="bottom">
+      <template slot="content">
+        <div>
+          popover的内容popover的内容popover的内容popover的内容popover的内容popover的内容popover的内容popover的内容popover的内容popover的内容
+        </div>
+      </template>
+      <g-button>点击</g-button>
+    </g-popover>
+    <g-popover position="left">
+      <template slot="content">
+        <div>
+          popover的内容
+          popover的内容popover的内容popover的内容popover的内容popover的内容popover的内容popover的内容popover的内容popover的内容popover的内容popover的内容popover的内容popover的内容popover的内容popover的内容popover的内容popover的内容popover的内容popover的内容
+        </div>
+      </template>
+      <g-button>点击</g-button>
+    </g-popover>
+    <g-popover position="right">
+      <template slot="content">
+        <div>
+          popover的内容
         </div>
       </template>
       <g-button>点击</g-button>
