@@ -1,5 +1,5 @@
 <template>
-  <div class="popover" @click="onClick" ref="popover">
+  <div class="popover" ref="popover">
     <div
       ref="contentwrapper"
       class="contentwrapper"
@@ -19,11 +19,36 @@ export default {
   props: {
     position: {
       type: String,
-      defalut: "top",
+      default: "top",
       validator(value) {
         return ["top", "bottom", "left", "right"].indexOf(value) >= 0;
       },
     },
+    trigger: {
+      type: String,
+      default: "click",
+      validator(value) {
+        return ["click", "mouse"].indexOf(value) >= 0;
+      },
+    },
+  },
+  mounted() {
+    if (this.trigger === "click") {
+      //   this.onClick();
+      this.$refs.popover.addEventListener("click", this.onClick);
+    } else {
+      this.$refs.popover.addEventListener("mouseenter", this.open);
+      this.$refs.popover.addEventListener("mouseleave", this.close);
+    }
+  },
+  destroyed() {
+    if (this.trigger === "click") {
+      //   this.onClick();
+      this.$refs.popover.removeEventListener("click", this.onClick);
+    } else {
+      this.$refs.popover.removeEventListener("mouseenter", this.open);
+      this.$refs.popover.removeEventListener("mouseleave", this.close);
+    }
   },
   data() {
     return {
@@ -32,27 +57,34 @@ export default {
   },
   methods: {
     positionContent() {
-      let { contentwrapper } = this.$refs;
+      const { contentwrapper } = this.$refs;
       document.body.appendChild(contentwrapper);
-      let {
+      const {
         left,
         top,
         height,
         width,
       } = this.$refs.button.getBoundingClientRect();
-      if (this.position === "top") {
-        contentwrapper.style.left = left + window.scrollX + "px";
-        contentwrapper.style.top = top + window.scrollY + "px";
-      } else if (this.position === "bottom") {
-        contentwrapper.style.left = left + window.scrollX + "px";
-        contentwrapper.style.top = top + height + window.scrollY + "px";
-      } else if (this.position === "left") {
-        contentwrapper.style.left = left + window.scrollX + "px";
-        contentwrapper.style.top = top + window.scrollY + "px";
-      } else if (this.position === "right") {
-        contentwrapper.style.left = left + width + window.scrollX + "px";
-        contentwrapper.style.top = top + window.scrollY + "px";
-      }
+      let contentPosition = {
+        top: {
+          top: top + window.scrollY,
+          left: left + window.scrollX,
+        },
+        bottom: {
+          top: top + height + window.scrollY,
+          left: left + window.scrollX,
+        },
+        left: {
+          top: top + window.scrollY,
+          left: left + window.scrollX,
+        },
+        right: {
+          top: top + window.scrollY,
+          left: left + width + window.scrollX,
+        },
+      };
+      contentwrapper.style.left = contentPosition[this.position].left + "px";
+      contentwrapper.style.top = contentPosition[this.position].top + "px";
     },
     eventHandle(e) {
       if (!this.$refs.contentwrapper.contains(e.target)) {
@@ -68,7 +100,7 @@ export default {
       this.visiable = false;
       document.removeEventListener("click", this.eventHandle);
     },
-    showPop() {
+    open() {
       this.visiable = true;
       this.$nextTick(() => {
         this.positionContent();
@@ -80,7 +112,7 @@ export default {
         if (this.visiable === true) {
           this.close();
         } else {
-          this.showPop();
+          this.open();
         }
       }
     },
@@ -116,10 +148,12 @@ export default {
     transform: translateY(-100%);
     margin-top: -10px;
     &::before {
+      border-bottom: none;
       border-top-color: black;
       top: 100%;
     }
     &::after {
+      border-bottom: none;
       border-top-color: #fff;
       top: calc(100% - 1px);
     }
@@ -127,10 +161,12 @@ export default {
   &.position-bottom {
     margin-top: 10px;
     &::before {
+      border-top: none;
       border-bottom-color: black;
       bottom: 100%;
     }
     &::after {
+      border-top: none;
       border-bottom-color: #fff;
       bottom: calc(100% - 1px);
     }
@@ -139,10 +175,12 @@ export default {
     transform: translateX(-100%);
     margin-left: -10px;
     &::before {
+      border-right: none;
       border-left-color: black;
       left: 100%;
     }
     &::after {
+      border-right: none;
       border-left-color: #fff;
       top: 8px;
       left: calc(100% - 1px);
@@ -151,13 +189,15 @@ export default {
   &.position-right {
     margin-left: 10px;
     &::before {
+      border-left: none;
       border-right-color: black;
-      left: -20px;
+      left: -10px;
     }
     &::after {
+      border-left: none;
       border-right-color: #fff;
       top: 8px;
-      left: -19px;
+      left: -9px;
     }
   }
 }

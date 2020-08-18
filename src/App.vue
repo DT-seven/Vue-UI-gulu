@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div style="height:200px"></div>
-    <g-popover position="top">
+    <g-popover position="top" trigger="click">
       <template slot="content">
         <div>
           weererewrerwrdsfsfsfsfsweererewrerwrdsfsfsfsfsweererewrerwrdsfsfsfsfsweererewrerwrdsfsfsfsfsweererewrerwrdsfsfsfsfsweererewrerwrdsfsfsfsfs
@@ -9,7 +9,7 @@
       </template>
       <g-button>点击</g-button>
     </g-popover>
-    <g-popover position="bottom">
+    <g-popover position="bottom" trigger="click">
       <template slot="content">
         <div>
           popover的内容popover的内容popover的内容popover的内容popover的内容popover的内容popover的内容popover的内容popover的内容popover的内容
@@ -17,7 +17,7 @@
       </template>
       <g-button>点击</g-button>
     </g-popover>
-    <g-popover position="left">
+    <g-popover position="left" trigger="click">
       <template slot="content">
         <div>
           popover的内容
@@ -26,7 +26,15 @@
       </template>
       <g-button>点击</g-button>
     </g-popover>
-    <g-popover position="right">
+    <g-popover position="right" trigger="click">
+      <template slot="content">
+        <div>
+          popover的内容
+        </div>
+      </template>
+      <g-button>点击</g-button>
+    </g-popover>
+    <g-popover position="right" trigger="mouse">
       <template slot="content">
         <div>
           popover的内容
