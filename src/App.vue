@@ -1,7 +1,15 @@
 <template>
   <div id="app">
-    <div style="height:200px"></div>
-    <g-popover position="top" trigger="click">
+    <div style="padidng:100px">
+      <g-collapse :single="true" :selected.sync="selectedTab">
+        <g-collapse-item title="标题1" name="1">neirong</g-collapse-item>
+        <g-collapse-item title="标题2" name="2">neirong</g-collapse-item>
+        <g-collapse-item title="标题3" name="3">neirong</g-collapse-item>
+      </g-collapse>
+      {{ selectedTab }}
+    </div>
+
+    <!-- <g-popover position="top" trigger="click">
       <template slot="content">
         <div>
           weererewrerwrdsfsfsfsfsweererewrerwrdsfsfsfsfsweererewrerwrdsfsfsfsfsweererewrerwrdsfsfsfsfsweererewrerwrdsfsfsfsfsweererewrerwrdsfsfsfsfs
@@ -41,7 +49,7 @@
         </div>
       </template>
       <g-button>点击</g-button>
-    </g-popover>
+    </g-popover> -->
     <!-- <g-tabs :selected.sync="selectedTab">
       <g-tabs-head>
         <g-tabs-item name="girls">
@@ -121,7 +129,7 @@ export default {
       loading3: false,
       errorMessage: "姓名不得少于2个字",
       message: "",
-      selectedTab: "girls",
+      selectedTab: "2",
     };
   },
   methods: {
