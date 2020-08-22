@@ -1,6 +1,6 @@
 <template>
   <div class="demo">
-    <h2>📌 简单用法</h2>
+    <h2>简单用法</h2>
     <p>
       <strong>预览</strong>
     </p>
@@ -27,7 +27,7 @@
         }}</span>
       </div>
     </div>
-    <h2>📌 手风琴效果</h2>
+    <h2>手风琴效果</h2>
     <p>
       <strong>预览</strong>
     </p>

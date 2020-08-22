@@ -1,6 +1,6 @@
 <template>
   <div class="demo">
-    <h2>📌 支持 HTML</h2>
+    <h2>支持 HTML</h2>
     <p>
       <strong>预览</strong>
     </p>
@@ -47,7 +47,7 @@
       </div>
     </div>
 
-    <h2>📌 将触发方式改为 hover</h2>
+    <h2>将触发方式改为 hover</h2>
     <p>
       <strong>预览</strong>
     </p>

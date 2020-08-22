@@ -1,7 +1,7 @@
 <template>
   <div class="base">
     <section>
-      <h2>📌 w-collapse-item Attributes</h2>
+      <h2>g-collapse-item/Attributes</h2>
       <div class="attr">
         <table>
           <thead>

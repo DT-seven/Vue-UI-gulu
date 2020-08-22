@@ -1,7 +1,7 @@
 <template>
   <div class="base">
     <section>
-      <h2>📌 w-row Attributes</h2>
+      <h2>g-row/Attributes</h2>
       <div class="attr">
         <table>
           <thead>

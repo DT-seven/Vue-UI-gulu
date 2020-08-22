@@ -1,6 +1,6 @@
 <template>
   <div class="demo">
-    <h2>📌 圣杯布局</h2>
+    <h2>圣杯布局</h2>
     <p>
       <strong>预览</strong>
     </p>
@@ -40,7 +40,7 @@
       </div>
     </div>
 
-    <h2>📌 多栏布局 1</h2>
+    <h2>多栏布局 1</h2>
     <p>
       <strong>预览</strong>
     </p>
@@ -87,7 +87,7 @@
       </div>
     </div>
 
-    <h2>📌 多栏布局 2</h2>
+    <h2>多栏布局 2</h2>
     <p>
       <strong>预览</strong>
     </p>

@@ -1,7 +1,7 @@
 <template>
   <div class="base">
     <section>
-      <h2>📌 Attributes</h2>
+      <h2>g-icon/Attributes</h2>
       <p class="des">
         组件将被渲染为
         <span class="code">input</span>标签，因此你可以使用所有的

@@ -1,12 +1,16 @@
 ---
 home: true
-title: Hello, World.
-description: 不知道从哪里开始？我们准备了一些你可以用来开始构建的便捷指南和参考文档。
+heroImage: /logo.jpg
+heroText: MYCOMPONENT
+tagline: 自制vue复用组件，学习vue，提升vue，掌握vue
 actionText: 快速上手 →
 actionLink: /guide/
-footer: MIT Licensed | Copyright © 2019-present Echo
+features:
+  - title: 简洁至上
+    details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
+  - title: Vue驱动
+    details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。
+  - title: 高性能
+    details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
+footer: MIT Licensed | Copyright © 2018-present Evan You
 ---
-
-# 组件库
-
-使用轮子

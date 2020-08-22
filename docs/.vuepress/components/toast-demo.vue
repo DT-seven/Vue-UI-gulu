@@ -1,6 +1,6 @@
 <template>
   <div class="demo">
-    <h2>📌 this.$toast</h2>
+    <h2>g-toast/Toast组件</h2>
     <p>
       <strong>预览</strong>
     </p>
@@ -32,7 +32,7 @@
       </div>
     </div>
 
-    <h2>📌 设置关闭按钮</h2>
+    <h2>设置关闭按钮</h2>
     <p>
       <strong>预览</strong>
     </p>
@@ -56,7 +56,7 @@
       </div>
     </div>
 
-    <h2>📌 支持 HTML</h2>
+    <h2>支持 HTML</h2>
     <p>
       <strong>预览</strong>
     </p>

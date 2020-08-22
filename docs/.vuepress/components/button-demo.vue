@@ -72,13 +72,12 @@
 
 <script>
 import "../public/js/icon";
-import "../public/css/icon.css";
 import GButton from "../../../src/components/button";
 import GButtonGroup from "../../../src/components/ButtonGroup";
 import GIcon from "../../../src/components/icon";
 import mixin from "../mixin";
 export default {
-  name: "demo",
+  name: "button-demo",
   mixins: [mixin],
   components: {
     GButton,

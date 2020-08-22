@@ -1,10 +1,11 @@
 module.exports = {
-  title: "Hello, World.",
+  title: "MyComponents",
   description: "📦 🎨 A api-friendly theme for VuePress.",
   themeConfig: {
     nav: [
       { text: "主页", link: "/" },
       { text: "指南", link: "/guide/" },
+      { text: "GitHub", link: "https://github.com/DT-seven" },
       { text: "谷歌", link: "https://google.com" },
     ],
     sidebar: [

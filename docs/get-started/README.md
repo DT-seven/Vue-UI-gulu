@@ -10,17 +10,16 @@ title: 快速上手
 
 请参考 [安装](../install/) 章节
 
-
 ## Hello World
 
 ```javascript
-import {Button} from 'echo-wheel'
-import Vue from 'vue'
+import { Button } from "gulu-20200801";
+import Vue from "vue";
 
 new Vue({
-  el: '#app',
+  el: "#app",
   components: {
-    'w-button':Button
-  }
-})
+    "g-button": Button,
+  },
+});
 ```

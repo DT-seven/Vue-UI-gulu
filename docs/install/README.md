@@ -7,11 +7,11 @@ title: 安装
 本章节待完善
 
 ```bash
-npm install echo-wheel
+npm install gulu-20200801
 ```
 
 或
 
 ```bash
-yarn add echo-wheel
+yarn add gulu-20200801
 ```

@@ -1,7 +1,7 @@
 <template>
   <div class="base">
     <section>
-      <h2>📌 w-collapse Attributes</h2>
+      <h2>g-collapse/Attributes</h2>
       <div class="attr">
         <table>
           <thead>
@@ -16,7 +16,9 @@
           <tbody>
             <tr>
               <td>selected</td>
-              <td class="des">当前展开 item 的 name 组成的数组。可以用 .sync 修饰符绑定。</td>
+              <td class="des">
+                当前展开 item 的 name 组成的数组。可以用 .sync 修饰符绑定。
+              </td>
               <td class="type">Array</td>
               <td>——</td>
               <td>——</td>
