@@ -28,7 +28,7 @@ export default {
       type: String,
       default: "click",
       validator(value) {
-        return ["click", "mouse"].indexOf(value) >= 0;
+        return ["click", "hover"].indexOf(value) >= 0;
       },
     },
   },

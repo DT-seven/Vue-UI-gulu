@@ -49,7 +49,7 @@ export default {
   flex-shrink: 0;
   padding: 0 2em;
   cursor: pointer;
-  border-right: 1px solid #ccc;
+
   &.active {
     background-color: #ccc;
     color: blue;

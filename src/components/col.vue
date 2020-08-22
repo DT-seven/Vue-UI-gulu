@@ -54,11 +54,10 @@ export default {
 </script>
 <style scoped lang="scss">
 .col {
-  height: 100px;
+  height: 50px;
   width: 50%;
   & > .colContent {
     border: 1px solid blue;
-    height: 100px;
   }
   @for $n from 1 through 24 {
     &.col-#{$n} {

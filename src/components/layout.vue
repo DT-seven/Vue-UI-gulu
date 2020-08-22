@@ -24,6 +24,7 @@ export default {
 .layout {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 }
 .gsider {
   flex-direction: row;

@@ -1,107 +1,120 @@
 <template>
-  <div class="toastContent" :class="toastPosition">
-    <div class="toast" ref="reftoast">
-      <slot></slot>
+  <div class="wrapper" :class="toastClasses">
+    <div class="toast" ref="toast">
+      <div class="message">
+        <slot v-if="!enableHtml"></slot>
+        <div v-else v-html="$slots.default[0]"></div>
+      </div>
       <div class="line" ref="line"></div>
-      <span @click="onClose" class="close">{{ closeButton.text }}</span>
+      <span class="close" v-if="closeButton" @click="onClickClose">{{
+        closeButton.text
+      }}</span>
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: "GuluToast",
+  name: "guluToast",
   props: {
     autoClose: {
-      type: Boolean,
-      default: true,
-    },
-    closeTime: {
-      type: Number,
-      default: 2,
+      type: [Boolean, Number],
+      default: 5,
+      validator(value) {
+        return typeof value === "boolean" || typeof value === "number";
+      },
     },
     closeButton: {
       type: Object,
+      // 传 object 时得用函数返回，不然属性会被覆盖,跟 data 一个道理
       default() {
         return {
-          text: "充值",
-          callback: () => {
-            console.log("zhidao le");
-          },
+          text: "关闭",
+          // 点击关闭按钮的回调函数
+          callback: undefined,
         };
       },
+    },
+    enableHtml: {
+      type: Boolean,
+      default: false,
     },
     position: {
       type: String,
       default: "middle",
       validator(value) {
-        return ["top", "bottom", "middle"].indexOf(value) + 1;
+        return ["top", "middle", "bottom"].indexOf(value) >= 0;
       },
     },
   },
   computed: {
-    toastPosition() {
+    toastClasses() {
       return [`position-${this.position}`];
     },
   },
+  mounted() {
+    this.updateStyle();
+    this.execAutoClose();
+  },
   methods: {
+    updateStyle() {
+      // 实现多行文字父元素需要用到 min-height，此时子元素 height 为 100% 获取不到父元素 height，因此异步获取父元素高
+      this.$nextTick(() => {
+        this.$refs.line.style.height = `${
+          this.$refs.toast.getBoundingClientRect().height
+        }px`;
+      });
+    },
+    execAutoClose() {
+      if (this.autoClose) {
+        setTimeout(() => {
+          this.close();
+        }, this.autoClose * 1000);
+      }
+    },
     close() {
       this.$el.remove();
+      this.$emit("close");
       this.$destroy();
     },
-    onClose() {
-      this.close();
-      this.closeButton.callback();
+    log() {
+      console.log("调用了 toast 的 log 方法");
     },
-  },
-  mounted() {
-    if (this.autoClose) {
-      setTimeout(() => {
-        this.close();
-      }, this.closeTime * 1000);
-    }
-    this.$nextTick(() => {
-      this.$refs.line.style.height = `${
-        this.$refs.reftoast.getBoundingClientRect().height
-      }px`;
-    });
+    onClickClose() {
+      this.close();
+      if (this.closeButton && typeof this.closeButton.callback === "function") {
+        // 调用 callback 传入 this 可让调用回调时拿到 toast 实例，从而调用实例里的方法
+        this.closeButton.callback(this);
+      }
+    },
   },
 };
 </script>
-<style scoped lang="scss">
+<style lang="scss" scoped>
 $font-size: 14px;
 $toast-min-height: 40px;
 $toast-bg: rgba(0, 0, 0, 0.75);
-@keyframes slipUp {
-  0% {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes slipUp {
-  0% {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes slipDown {
+
+@keyframes slide-up {
   0% {
     opacity: 0;
     transform: translateY(100%);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0%);
   }
 }
-@keyframes fideIn {
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes fade-in {
   0% {
     opacity: 0;
   }
@@ -109,52 +122,60 @@ $toast-bg: rgba(0, 0, 0, 0.75);
     opacity: 1;
   }
 }
-.toastContent {
+.wrapper {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
+  $animation-duration: 300ms;
   &.position-top {
     top: 0;
-    & .toast {
-      animation: slipUp 1s;
+    z-index: 1000;
+    .toast {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      animation: slide-down $animation-duration;
     }
   }
   &.position-bottom {
     bottom: 0;
-    & .toast {
-      animation: slipDown 1s;
+    z-index: 1000;
+    .toast {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      animation: slide-up $animation-duration;
     }
   }
   &.position-middle {
     top: 50%;
-    transform: translate(-50%, -50%);
-    & .toast {
-      animation: fideIn 1s;
+    z-index: 1000;
+    .toast {
+      animation: fade-in $animation-duration;
     }
   }
 }
 .toast {
-  min-height: $toast-min-height;
-  line-height: 1.8;
-  font-size: $font-size;
   display: flex;
   align-items: center;
-  margin: 0 auto;
-  color: #fff;
-  border-radius: 4px;
+  font-size: $font-size;
+  min-height: $toast-min-height;
+  line-height: 1.8;
+  padding: 0 16px;
+  color: white;
   background: $toast-bg;
+  border-radius: 4px;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
-  padding-left: 8px;
-
-  & span {
-    padding: 0 8px;
+  .message {
+    padding: 8px 0;
+  }
+  .close {
+    padding-left: 16px;
     cursor: pointer;
     flex-shrink: 0;
   }
-}
-.line {
-  border: 1px solid #666;
-  height: 100%;
-  margin-left: 8px;
+  .line {
+    margin-left: 16px;
+    height: 100%;
+    border-left: 1px solid #666;
+  }
 }
 </style>

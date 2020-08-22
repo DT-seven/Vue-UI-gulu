@@ -42,7 +42,7 @@
       </template>
       <g-button>点击</g-button>
     </g-popover>
-    <!-- <g-tabs :selected.sync="selectedTab">
+    <g-tabs :selected.sync="selectedTab">
       <g-tabs-head>
         <g-tabs-item name="girls">
           <g-icon name="shezhi"></g-icon>
@@ -56,7 +56,7 @@
         <g-tabs-pane name="sport">体育图片</g-tabs-pane>
         <g-tabs-pane name="finace">财经新闻</g-tabs-pane>
       </g-tabs-body>
-    </g-tabs>-->
+    </g-tabs>
     <!-- <div id="toast">
       <button @click="showToast">点我</button>
     </div>
@@ -80,14 +80,14 @@
         </g-layout>
         <g-footer>footer</g-footer>
       </g-layout>
-    </div>
+    </div>-->
     <div id="gulu-input">
       <g-input value="zhangsan" disabled></g-input>
       <g-input value="zhangsan" readOnly></g-input>
       <g-input v-model="message" @change="inputChange"></g-input>
       <g-input value="zhangsan" :error="errorMessage"></g-input>
     </div>
-    <div id="gulu-button" style="margin: 20px;">
+    <!--<div id="gulu-button" style="margin: 20px;">
       <g-button :loading="loading1" @click="loading1 = !loading1">
         按钮
       </g-button>

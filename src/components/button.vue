@@ -95,4 +95,6 @@ $font-size: 14px;
 .loading {
   animation: spin 1s infinite linear;
 }
+.disabled {
+}
 </style>

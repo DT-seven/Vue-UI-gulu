@@ -1,5 +1,5 @@
 <template>
-  <div class="tabs-head">
+  <div class="tabs-head" ref="head">
     <slot></slot>
     <div class="line" ref="line"></div>
   </div>
@@ -11,8 +11,9 @@ export default {
   mounted() {
     this.eventBus.$on("update:selected", (item, vm) => {
       let { width, left } = vm.$el.getBoundingClientRect();
+      let { left: left2 } = this.$refs.head.getBoundingClientRect();
       this.$refs.line.style.width = `${width}px`;
-      this.$refs.line.style.left = `${left}px`;
+      this.$refs.line.style.left = `${left - left2}px`;
     });
   },
 };
@@ -22,12 +23,12 @@ $tab-height: 40px;
 .tabs-head {
   display: flex;
   height: $tab-height;
-  border: 1px solid #999;
+  border-bottom: 1px solid #ccc;
   position: relative;
   > .line {
     position: absolute;
     bottom: 0;
-    border-bottom: 3px solid blue;
+    border-bottom: 1px solid blue;
     transition: all 250ms;
   }
 }

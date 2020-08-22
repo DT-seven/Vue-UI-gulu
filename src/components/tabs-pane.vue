@@ -35,11 +35,4 @@ export default {
   },
 };
 </script>
-<style scoped lang="scss">
-.tabspane {
-  border: 1px solid #999;
-  &.active {
-    background: chocolate;
-  }
-}
-</style>
+<style scoped lang="scss"></style>
