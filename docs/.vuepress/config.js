@@ -1,4 +1,5 @@
 module.exports = {
+  base: "/Vue-UI-gulu/",
   title: "MyComponents",
   description: "📦 🎨 A api-friendly theme for VuePress.",
   themeConfig: {
