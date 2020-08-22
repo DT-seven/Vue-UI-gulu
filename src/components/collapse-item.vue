@@ -1,6 +1,6 @@
 <template>
   <div class="collapse-item">
-    <div class="title" @click="toggle">{{title}}</div>
+    <div class="title" @click="toggle">{{ title }}</div>
     <div class="content" v-if="open">
       <slot></slot>
     </div>
@@ -8,42 +8,43 @@
 </template>
 <script>
 export default {
-  name: 'WheelCollapseItem',
-  inject: ['eventBus'],
+  name: "GuluCollapseItem",
+  inject: ["eventBus"],
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
     },
     name: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
-      open: false
-    }
+      open: false,
+    };
   },
   mounted() {
-    this.eventBus && this.eventBus.$on('update:selected', (names) => {
-      if(names.indexOf(this.name) >=0 ){
-        this.open = true
-      } else {
-        this.open = false
-      }
-    })
+    this.eventBus &&
+      this.eventBus.$on("update:selected", (names) => {
+        if (names.indexOf(this.name) >= 0) {
+          this.open = true;
+        } else {
+          this.open = false;
+        }
+      });
   },
   methods: {
     toggle() {
       if (this.open) {
-        this.eventBus.$emit('updata:removeSelected', this.name)
+        this.eventBus.$emit("updata:removeSelected", this.name);
       } else {
-        this.eventBus.$emit('update:addSelected', this.name)
+        this.eventBus.$emit("update:addSelected", this.name);
       }
-    }
+    },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "../../styles/_var.scss";
@@ -76,5 +77,3 @@ export default {
   }
 }
 </style>
-
-
